@@ -11,6 +11,7 @@
 @include font('TriviaSans', '/fonts/TriviaSans', 'Medium');
 @import "mixins.scss"
 @import "table.sass"
+// @import "../bootstrap/bootstrap"
 
 
 html
@@ -28,6 +29,102 @@ $pcolor: pink
 $underline: 2px
 // .carousel2
 // 	background-color: $white
+
+.img-fluid
+	max-width: 100%
+	height: auto
+	max-height: 90vh
+	margin: auto auto
+
+
+#myModal
+	z-index: 5000
+#myModal2
+	z-index: 6000
+.pmodal-ico
+	cursor: url("../images/magnif.png") 34 12, auto !important
+.pmodal
+	display: none /* Hidden by default */
+	position: fixed /* Stay in place */
+	z-index: 1 /* Sit on top */
+	left: 0
+	top: 0
+	width: 100% /* Full width */
+	height: 100% /* Full height */
+	overflow: auto /* Enable scroll if needed */
+	background-color: rgb(0,0,0) /* Fallback color */
+	background-color: rgba(255,255,255,0.6) /* Black w/ opacity */
+
+
+/* Modal Content/Box */
+.pmodal-content 
+	// background-color: #fefefe
+	margin: auto auto /* 15% from the top and centered */
+	// border: 1px solid #888
+	width: 90% /* Could be more or less, depending on screen size */
+	position: relative
+	cursor: url("../images/ico_close.svg") 34 12, auto !important
+
+
+/* The Close Button */
+.pclose
+	position: absolute
+	top: -20px
+	right: -20px
+	float: right
+	color: $black
+	font-size: 48px
+	font-weight: bold
+	z-index: 6000
+
+.pclose:hover,
+.pclose:focus 
+	color: black
+	text-decoration: none
+	cursor: pointer
+
+
+.svgimg
+	height: 40px
+	margin: $gap
+
+.slick-arrow
+	height: 100% !important
+// .slick-track
+// 	display: flex !important
+// 	align-items: center !important
+// 	.slick-slide
+// 		align-self: center !important
+
+.flexmodal
+	display: flex
+	background-color: red
+
+
+.archive-item
+	height: $gap*5
+	display: block
+
+.item-container
+	min-height: $gap*2.5
+	overflow: hidden
+	img
+		width: $gap*3
+@media screen and (max-width: 736px)
+	.item-container
+		min-height: $gap*6
+
+.reset
+	height: $gap
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,7 +163,7 @@ a
 	justify-self: end
 
 .slick-arrow
-	width: 30%!important
+	width: 30% !important
 
 .nav-link
 	display: block
@@ -146,6 +243,12 @@ a
 				.nav-link
 					margin: 0 $gap/10
 
+// vypnutí šipek pro mobily
+.slick-slider
+	.slick-arrow
+		display: none
+		@include for-size(md)
+			display: block
 .nav_menu
 	grid-area: pagl
 
@@ -316,6 +419,11 @@ a
 					grid-template-columns: 1fr 1fr
 					grid-template-rows: 1fr
 					grid-gap: $gap
+				@media screen and (min-height: 1000px) and (max-width: 1200px)
+					grid-template-columns: 1fr
+					grid-template-rows: 1fr 1fr
+					grid-gap: $gap/2
+
 				&:before
 					padding-bottom: 0%
 				li
